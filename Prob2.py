@@ -1,12 +1,14 @@
-from PyQt4 import QtCore, QtGui
+
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
 from mainwindow import Ui_MainWindow
 from aboutdialog import Ui_aboutDialog
 import sys
 
-class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
+class aboutDialog(QDialog, Ui_aboutDialog):
     def __init__(self, parent=None):
-        QtGui.QDialog.__init__(self, parent)
-        flags = QtCore.Qt.Drawer | QtCore.Qt.WindowStaysOnTopHint
+        QDialog.__init__(self, parent)
+        flags = Qt.Drawer | Qt.WindowStaysOnTopHint
         self.setWindowFlags(flags)
         self.setupUi(self)
         self.aboutOKButton.clicked.connect(self.acceptOKButtonClicked)
@@ -14,9 +16,9 @@ class aboutDialog(QtGui.QDialog, Ui_aboutDialog):
     def acceptOKButtonClicked(self):
         self.close()
 
-class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
+class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
-        QtGui.QMainWindow.__init__(self, parent)
+        QMainWindow.__init__(self, parent)
         self.setupUi(self)
         
         self.solveButton.clicked.connect(self.solveButton_clicked)
@@ -74,7 +76,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         
         
 if __name__ == '__main__':
-    app = QtGui.QApplication(sys.argv)
+    app = QApplication(sys.argv)
     MainApp = MainWindow()
     MainApp.show()
     sys.exit(app.exec_())
