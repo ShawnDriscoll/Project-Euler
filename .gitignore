@@ -38,13 +38,14 @@ Desktop.ini
 ## Python
 #############
 
-*.py[co]
+*.pyx
+*.pyc
 
 # Packages
 *.egg
 *.egg-info
 dist/
-temp.win32-2.5/
+build/
 eggs/
 parts/
 var/
